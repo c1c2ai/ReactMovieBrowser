@@ -17,8 +17,8 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    width: 500,
-    height: 450,
+    width: 1800,
+    height: 800,
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
@@ -47,10 +47,8 @@ export default function GridView() {
 
   return (
     <div className={classes.root}>
-      <GridList cellHeight={180} className={classes.gridList}>
-        <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          {/* <ListSubheader component="div">December</ListSubheader> */}
-        </GridListTile>
+      <GridList cellHeight={180} className={classes.gridList} cols={8}>
+       
         {tileData.map(tile => (
           <GridListTile key={tile.img}>
             <img src={tile.img} alt={tile.title} />
