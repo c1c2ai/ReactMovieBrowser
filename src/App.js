@@ -14,6 +14,16 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Header from './Header';
 import Footer from './Footer';
 import LeftMenu from './LeftMenu';
+import MovieTreeView from './TreeView';
+import GridView from './GridView';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
 
 
 const useStyles = makeStyles(theme => ({
@@ -39,13 +49,30 @@ export default function App() {
   };
 
   return (
-  
+    <Router>
+    
     <Grid container className={classes.root} spacing={2}>
-       <Header></Header>
-      <Grid item xs={12}>
-        <LeftMenu></LeftMenu>
-      </Grid>
-     {/* <Footer></Footer> */}
+     <LeftMenu></LeftMenu>
     </Grid>
+
+      <Switch>
+        <Route path="/list">
+        <GridView/>
+        </Route>
+        <Route path="/tree">
+         <MovieTreeView/>
+        </Route>
+        <Route path="/">
+        <GridView/>
+        </Route>
+      </Switch>
+    
+  </Router>
+  
+    
   );
 }
+
+
+
+
